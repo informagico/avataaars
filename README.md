@@ -1,30 +1,30 @@
-This renders [Avataaars](https://github.com/fangpenlin/avataaars) in a way that can be embedded!
+# Avataaars server-side rendering
 
-Here's some example URLs:
+This is a fork of [gkoberger/avataaars](https://github.com/gkoberger/avataaars), heavily simplified and without the AWS storage, a little bit of cleanup and the use of localstorage for caching (and of course, a little bit of magic 🧙‍♂️).
 
-    https://avataaars.io/?hairColor=BrownDark&clotheType=Hoodie&avatarStyle=Circle
-    https://avataaars.io/?accessoriesType=Prescription01&avatarStyle=Circle&clotheType=Hoodie&eyeType=EyeRoll&eyebrowType=UnibrowNatural&facialHairType=BeardLight&hairColor=Black&mouthType=Eating&skinColor=Yellow&topType=LongHairShavedSides
-    https://avataaars.io/?accessoriesType=Blank&avatarStyle=Circle&clotheColor=Black&clotheType=GraphicShirt&eyeType=Close&eyebrowType=Default&facialHairColor=BlondeGolden&facialHairType=Blank&hairColor=PastelPink&mouthType=Sad&skinColor=Tanned&topType=Hat
+## Usage
 
+You can receive an SVG by calling directly the endpoint root:
 
-If you want a PNG, you can add `/png` to the URL like this:
+`/?hairColor=BrownDark&clotheType=Hoodie&avatarStyle=Circle`
 
-    https://avataaars.io/png?hairColor=BrownDark&clotheType=Hoodie&avatarStyle=Circle
+Or you can also receive a PNG file making a call to `/png/{width}` (width is optional):
 
-And you can resize the PNG using `/png/{width}`, like this:
+`/png?hairColor=BrownDark&clotheType=Hoodie&avatarStyle=Circle`
 
-    https://avataaars.io/png/2000?hairColor=BrownDark&clotheType=Hoodie&avatarStyle=Circle
+`/png/256?hairColor=BrownDark&clotheType=Hoodie&avatarStyle=Circle`
+
+## Configuration
 
 You can build your query strings here:
 
-    https://getavataaars.com/
+https://getavataaars.com/
 
-DEVELOPMENT
-===========
+## Build
 
-   $ git clone git@github.com:gkoberger/avataaars.git
-   $ cd avataaars
-   $ npm install
-   $ npm start
+```console
+$ npm install
+$ npm start
+```
 
 Most of the good stuff is in `app.js`!
